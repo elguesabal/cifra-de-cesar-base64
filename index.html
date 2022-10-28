@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="conteudoTotal">
+        <fieldset id="mensagem">
+            <legend>Mensagem do Usuário</legend>
+                <p><label for="cMsg">Mensagem:</label><textarea id="msg" cols="80" rows="10" placeholder="Deixe aqui sua mensagem"></textarea></p>
+                <input type="number" id="chave">
+                <input type="button" value="criptografar" onclick="criptografar()">
+        </fieldset>
+        <br>
+        <br>
+        <br>
+        <br>
+        <fieldset id="mensagem">
+            <legend>Mensagem do Usuário</legend>
+                <p><label for="cMsg">Mensagem:</label><textarea id="resultado" cols="80" rows="10" placeholder="Deixe aqui sua mensagem"></textarea></p>
+        </fieldset>
+    </div>
+
+
+    <script>
+        function criptografar() {
+            var msg = document.getElementById('msg')
+            var codigo = document.getElementById('resultado')
+
+            var key = document.getElementById('chave')
+            var num = Number(key.value)
+
+            msg = msg.value.toUpperCase().replace(/\s/g,'')
+
+            for(var i = 0; i < msg.length; i++) {
+                
+                var NumeroDaLetra
+                var deslocamento 
+
+                NumeroDaLetra = msg.charCodeAt(i) - 65
+                deslocamento = (NumeroDaLetra + num) % 26
+               
+                deslocamento += 65
+
+                codigo.innerText += String.fromCharCode(deslocamento)
+            }
+        }
+    </script>
+
+</body>
+</html>
