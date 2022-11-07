@@ -10,22 +10,155 @@
 
 
 
+            //AKI MUDA O FUNDO DA AREA DO TEXTO  **COMECO
+function txtarea1() {
+    document.getElementById('mensagem').style.boxShadow = '5px 5px 5px red'
+    document.getElementById('msg').style.backgroundImage = 'url("imagens/itachi.gif")'//NAO ESQUECER DE MUDAR O CAMINHO DA IMAGEM QUANDO PASSAR PRO JS
+}
+                //AKI MUDA O FUNDO DA AREA DO TEXTO  **FIM
+    
+    
+    
+                //AKI MUDA O FUNDO DA AREA DO TEXTO  **COMECO
+function cifra() {
+    document.getElementById('mensagem').style.backgroundImage = 'url("imagens/cifra3.gif")'//NAO ESQUECER DE MUDAR O CAMINHO DA IMAGEM QUANDO PASSAR PRO JS
+}
+    
+
+
+function base() {
+    document.getElementById('mensagem').style.backgroundImage = 'url("imagens/base2.gif")'//NAO ESQUECER DE MUDAR O CAMINHO DA IMAGEM QUANDO PASSAR PRO JS
+}
+            //AKI MUDA O FUNDO DA AREA DO TEXTO  **FIM
+    
+    
+    
+function criptografar() {
+    document.getElementById('codigo').style.boxShadow = '5px 5px 5px green'
+    //document.getElementById('divcodificacao').innerHTML = '<img src="imagens/trancar.gif" id="imgcodificacao" alt="Codificação">'//NAO ESQUECER DE MUDAR O CAMINHO DA IMAGEM QUANDO PASSAR PRO JS
+    
+    
+    
+    var teste = document.getElementById('msg').value.length
+    var testePalavrao = document.getElementById('msg').value.replace(' cu','©').replace('cu ','©').replace(' buceta','©').replace(' piroca','©').replace(' puta','©').replace('porra ','©').replace('foda','©').replace(' foder','©').replace('caralho','©').replace('foda-se','©')
+
+    for (var i = 0; i < teste; i++) {
+        if (testePalavrao.charAt(i) == '©') {
+            document.getElementById('palavrao').innerHTML = 
+            `<div id="caixa">
+                <p>Peço com gentileza não usar palavrões!</p>
+                <img src="imagens/dedo-do-meio.gif" id="dedo">
+        
+                <input type="button" value="Desculpa!" id="desculpas" onclick="desculpas()">    
+            </div>`
+
+            //document.getElementsByTagName('h6').style.color = 'red'       PQ NAO DA PRA ESTILIZAR PELA TAG?
+            document.getElementById('aviso').style.color = 'rgba(255, 0, 0, 0.788)'
+        }
+    }
+         
+    
+    if (document.getElementById('cifra').checked) {
+        document.getElementById('codigo').style.backgroundImage = 'url("imagens/narutosasuke.gif")'//NAO ESQUECER DE MUDAR O CAMINHO DA IMAGEM QUANDO PASSAR PRO JS
+
+        var msg = document.getElementById('msg')
+        var codigo = document.getElementById('resultado')
+        var key = document.getElementById('chave')
+        var num = Number(key.value)
+
+        codigo.innerText = ''
+        msg = msg.value
+    
+        for(var i = 0; i < msg.length; i++) {
+            if (msg.charCodeAt(i) > 96 && msg.charCodeAt(i) < 123) {
+                var NumeroDaLetra = msg.charCodeAt(i) - 97
+                var deslocamento = (NumeroDaLetra + num) % 26           
+                deslocamento += 97
+
+                codigo.textContent += String.fromCharCode(deslocamento)
+
+            } else if (msg.charCodeAt(i) > 64 && msg.charCodeAt(i) < 91) {
+                var NumeroDaLetra = msg.charCodeAt(i) - 65
+                var deslocamento = (NumeroDaLetra + num) % 26           
+                deslocamento += 65
+    
+                codigo.textContent += String.fromCharCode(deslocamento)
+                
+            } else {
+                codigo.textContent += ' '
+            }
+        }
+    } else {
+        if (document.getElementById('base').checked) {
+            document.getElementById('codigo').style.backgroundImage = 'url("imagens/time7.gif")'//NAO ESQUECER DE MUDAR O CAMINHO DA IMAGEM QUANDO PASSAR PRO JS
+            
+            document.getElementById('resultado').innerText = btoa(document.getElementById('msg').value)
+            
+        }
+    }
+}
+
+
+    
+function descriptografar() {
+    document.getElementById('codigo').style.boxShadow = '5px 5px 5px green'
+
+    if (document.getElementById('cifra').checked) {
+
+        var msg = document.getElementById('msg')
+        var codigo = document.getElementById('resultado')
+        var key = document.getElementById('chave')
+        var num = Number(key.value)
+
+        codigo.innerText = ''
+        msg = msg.value
+    
+        for(var i = 0; i < msg.length; i++) {
+            if (msg.charCodeAt(i) > 96 && msg.charCodeAt(i) < 123) {
+                var NumeroDaLetra = msg.charCodeAt(i) - 97
+                var deslocamento = (NumeroDaLetra - num) % 26           
+                deslocamento += 97
+
+                codigo.textContent += String.fromCharCode(deslocamento)
+
+            } else if (msg.charCodeAt(i) > 64 && msg.charCodeAt(i) < 91) {
+                var NumeroDaLetra = msg.charCodeAt(i) - 65
+                var deslocamento = (NumeroDaLetra - num) % 26           
+                deslocamento += 65
+    
+                codigo.textContent += String.fromCharCode(deslocamento)
+                
+            } else {
+                codigo.textContent += ' '
+            }
+        }
+    } else {
+        if (document.getElementById('base').checked) {
+            document.getElementById('resultado').innerText = atob(document.getElementById('msg').value)
+        }
+    }
+}
+
+
+
+function desculpas() {
+    document.getElementById('palavrao').removeChild(document.getElementById('caixa'))
+}
 
 
 
 
 
-
-
-
-
-// https://www.youtube.com/watch?v=utiLWBXmNQU
-// https://www.youtube.com/watch?v=UShV_TFxs_A
-// https://www.youtube.com/watch?v=dPl3OTOOJwM
+// https://www.youtube.com/watch?v=utiLWBXmNQU      calculo da crifra
+// https://www.youtube.com/watch?v=UShV_TFxs_A      replace
+// https://www.youtube.com/watch?v=dPl3OTOOJwM      for
 // https://stackoverflow.com/questions/5964373/is-there-a-difference-between-s-g-and-s-g
-
-
-
+// http://devfuria.com.br/javascript/dom-remove-child/      removeChild
+// https://www.youtube.com/watch?v=rPkMD0OSiKc      parametros
+// https://www.youtube.com/watch?v=xa2-3oja8A4      map
+// https://www.youtube.com/watch?v=wtMJLBXr0wk      join
+// https://www.youtube.com/watch?v=b28xNwHrIuI&t=282s       indexOf
+// https://www.youtube.com/watch?v=Sc5zG2KNP0w      btoa() e aotb()
 
 
 
@@ -258,5 +391,15 @@
 
 
 
+                                                //CENSURA DA MALDADE
+
+// var frase = ' cu'
+// var palavrasCensurada = [' cu', 'cu ', ' buceta', ' piroca', ' puta', 'porra ', 'foda ', ' foder', 'caralho', 'foda-se']
+// var testeCensura = [frase.replace(' cu','@'), frase.replace('cu ','@'), frase.replace(' buceta','@'), frase.replace(' piroca','@'), frase.replace(' puta','@'), frase.replace('porra ','@'), frase.replace('foda ','@'), frase.replace(' foder','@'), frase.replace('caralho','@'), frase.replace('foda-se','@')]
 
 
+// if (testeCensura[0] == '@' || testeCensura[1] == '@' || testeCensura[2] == '@' || testeCensura[3] == '@' || testeCensura[4] == '@' || testeCensura[5] == '@' || testeCensura[6] == '@' || testeCensura[7] == '@' || testeCensura[8] == '@' || testeCensura[9] == '@') {
+//     console.log(frase)
+// } else {
+//     console.log('estude mais')
+// }

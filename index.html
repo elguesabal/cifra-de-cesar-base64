@@ -8,49 +8,46 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div id="box1">
+        <div id="box2">
+            <div id="teste">
+                <fieldset id="mensagem">
+                    <legend>Mensagem do Usuário</legend>
+                    <p><label>Mensagem:</label></p>
+                    <textarea id="msg" cols="80" rows="10" placeholder="Deixe aqui sua mensagem" onclick="txtarea1()"></textarea>
+                    <h4 id="aviso">Não criptografe palavrões!</h4>
 
-    <div id="conteudoTotal">
-        <fieldset id="mensagem">
-            <legend>Mensagem do Usuário</legend>
-                <p><label for="cMsg">Mensagem:</label><textarea id="msg" cols="80" rows="10" placeholder="Deixe aqui sua mensagem"></textarea></p>
-                <input type="number" id="chave">
-                <input type="button" value="criptografar" onclick="criptografar()">
-        </fieldset>
-        <br>
-        <br>
-        <br>
-        <br>
-        <fieldset id="mensagem">
-            <legend>Mensagem do Usuário</legend>
-                <p><label for="cMsg">Mensagem:</label><textarea id="resultado" cols="80" rows="10" placeholder="Deixe aqui sua mensagem"></textarea></p>
-        </fieldset>
+                    <input type="radio" name="codigo" id="cifra" onclick="cifra()"/> <label>Cifra de Cesar</label>
+                    <input type="radio" name="codigo" id="base" onclick="base()"/> <label>Base64</label>
+                    <input type="number" id="chave">
+                    <input type="button" value="Criptografar" onclick="criptografar()">
+                    <input type="button" value="Descriptografar" onclick="descriptografar()">
+                </fieldset>
+                <br>
+                <div id="palavrao">
+
+                </div>
+                <br>
+                <fieldset id="codigo">
+                    <legend >Mensagem codificada</legend>
+                    <p><label for="cMsg">Código:</label></p>
+                    <p><textarea id="resultado" cols="80" rows="10" placeholder="Mensagem codificada"></textarea></p>
+                </fieldset>
+            </div>
+
+        
+        
+            <footer id="rodape">
+                <hr>
+                <p class="rodape">Copyright &copy; 2022 - by José Antonio
+                <br>
+                <a href="https://github.com/elguesabal" target="_blank"><img class="redesocial" id="github" src="imagens/github.png"
+                alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/jos%C3%A9-antonio-b14160240/" target="_blank"><img class="redesocial" id="linkedin" src="imagens/linkedin.png"
+                alt="LinkedIn"></a></p>
+            </footer>
+        </div>
     </div>
-
-
-    <script>
-        function criptografar() {
-            var msg = document.getElementById('msg')
-            var codigo = document.getElementById('resultado')
-
-            var key = document.getElementById('chave')
-            var num = Number(key.value)
-
-            msg = msg.value.toUpperCase().replace(/\s/g,'')
-
-            for(var i = 0; i < msg.length; i++) {
-                
-                var NumeroDaLetra
-                var deslocamento 
-
-                NumeroDaLetra = msg.charCodeAt(i) - 65
-                deslocamento = (NumeroDaLetra + num) % 26
-               
-                deslocamento += 65
-
-                codigo.innerText += String.fromCharCode(deslocamento)
-            }
-        }
-    </script>
-
+    <script src="javascript/cifraDeCesar.js"></script>
 </body>
 </html>

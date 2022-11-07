@@ -1,7 +1,187 @@
-#conteudoTotal {
-    margin: 5% 20% 10% 20%;
+
+                        /* ESTILIZACOA DA AREA DE TEXO  **COMECO */
+fieldset {
+    width: auto;
+    height: auto;
+    margin: 0% 20% 0% 20%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100%;
+    box-shadow: 5px 5px 5px rgb(110, 110, 110);
+    position: relative;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -0%);
+    z-index: 1;
 }
 
-#codigo {
-    border-color: red;
+#msg {
+    background-repeat: no-repeat;
+    background-position: bottom left;
 }
+
+#mensagem {
+    margin-top: 5%;
+}
+
+textarea {
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 0%;
+}
+
+#chave:hover, textarea:hover {
+    background-color: rgba(216, 216, 216, 0.7);
+}
+
+input {
+    margin: 0% 0% 0% 1%;
+}
+
+h4 {
+    margin: 0% 0% 2% 0%;
+}
+                        /* ESTILIZACOA DA AREA DE TEXO  **FIM */
+
+
+
+                        /* RODAPE  **COMECO */
+#rodape p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+hr {
+    margin-top: 100px;
+}
+
+img.redesocial {
+    width: 3%;
+    margin: 1% 1% 1% 0%;
+    transition: all .5s;
+    border: 10px solid transparent;
+}
+
+#github:hover {
+    -webkit-transform: scale(2);
+    box-shadow: 5px 0px 5px rgb(0, 0, 0);
+    border-radius: 100%;
+    border: 50px;
+}
+
+#linkedin:hover {
+    -webkit-transform: scale(2);
+    box-shadow: 5px 0px 5px rgb(0, 38, 207);
+    border-radius: 10%;
+    border: 0px;
+}
+
+footer {
+    background-color: rgb(71, 71, 71);
+    box-shadow: 10px 10px 10px black;
+    margin: 0% 0% 0% 0%;
+    height: 11%;
+}
+                        /* RODAPE  **FIM */
+
+
+
+                        /* CAIXA DE CENSURA  **COMECO */
+#desculpas {
+    color: black;
+    background-color: red;
+    border-radius: 10px;
+    float: right;
+    width: 100px;
+
+}
+
+#caixa {
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px black;
+    display: inline-block;
+    margin-left: 33%;
+    color: black;
+    padding: 15px;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    -webkit-transform: scale(2.5);
+    width: 30%;
+    z-index: 2;
+}
+
+#textoCensura {
+    margin: 3px 10px 3px 10px;
+    text-align: center;
+}
+
+#dedo {
+    width: 10%;
+}
+                        /* CAIXA DE CENSURA  **FIM */
+
+
+
+                        /* NOVO CURSOR **FIM */
+fieldset {
+    cursor: url("imagens/kunai.png"), default;
+}
+                        /* NOVO CURSOR **FIM */
+
+
+
+                        /* ANIMACAO DA BORDA **COMECO */
+/* https://www.youtube.com/watch?v=gR8hPw9g3pU */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(134, 134, 134);
+}
+
+#box1 {
+    position: relative;
+    width: 90%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, .4);
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+#box1::before {
+    content: '';
+    position: absolute;
+    width: 1500px;
+    height: 140%;
+    background: linear-gradient(red, green);
+    animation: animate 5s linear infinite
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#box1::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: rgb(134, 134, 134);
+    border-radius: 20px;
+}
+
+#box1 #box2 {
+    position: relative;
+    color: white;
+    z-index: 10;
+}
+                        /* ANIMACAO DA BORDA **COMECO */
+
+
+
