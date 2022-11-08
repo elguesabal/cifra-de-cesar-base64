@@ -85,7 +85,7 @@ function criptografar() {
                 codigo.textContent += String.fromCharCode(deslocamento)
                 
             } else {
-                codigo.textContent += ' '
+                codigo.textContent += m[i]
             }
         }
     } else {
@@ -129,7 +129,7 @@ function descriptografar() {
                 codigo.textContent += String.fromCharCode(deslocamento)
                 
             } else {
-                codigo.textContent += ' '
+                codigo.textContent += msg[i]
             }
         }
     } else {
