@@ -85,7 +85,7 @@ function criptografar() {
                 codigo.textContent += String.fromCharCode(deslocamento)
                 
             } else {
-                codigo.textContent += m[i]
+                codigo.textContent += msg[i]
             }
         }
     } else {
